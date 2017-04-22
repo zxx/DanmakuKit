@@ -1,0 +1,396 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		786CA07E1EAB41A70040EEF8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 786CA07D1EAB41A70040EEF8 /* main.m */; };
+		786CA0891EAB41A70040EEF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 786CA0881EAB41A70040EEF8 /* Assets.xcassets */; };
+		786CA08C1EAB41A70040EEF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 786CA08A1EAB41A70040EEF8 /* LaunchScreen.storyboard */; };
+		786CA0A71EAB445A0040EEF8 /* DFAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 786CA0A41EAB445A0040EEF8 /* DFAppDelegate.m */; };
+		786CA0A81EAB445A0040EEF8 /* DFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 786CA0A61EAB445A0040EEF8 /* DFViewController.m */; };
+		786CA0B51EAB45E00040EEF8 /* DanmakuRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 786CA0B41EAB45E00040EEF8 /* DanmakuRenderer.m */; };
+		786CA0B81EAB45F30040EEF8 /* DanmakuCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 786CA0B71EAB45F30040EEF8 /* DanmakuCanvas.m */; };
+		786CA0BC1EAB46AE0040EEF8 /* DanmakuSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 786CA0BB1EAB46AE0040EEF8 /* DanmakuSprite.m */; };
+		786CA0BF1EAB46BE0040EEF8 /* DanmakuSpriteFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 786CA0BE1EAB46BE0040EEF8 /* DanmakuSpriteFactory.m */; };
+		786CA0C21EAB46EE0040EEF8 /* DanmakuDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 786CA0C11EAB46EE0040EEF8 /* DanmakuDescriptor.m */; };
+		786CA0C51EAB473D0040EEF8 /* DanmakuDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 786CA0C41EAB473D0040EEF8 /* DanmakuDispatcher.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		786CA0791EAB41A70040EEF8 /* Danmaku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Danmaku.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		786CA07D1EAB41A70040EEF8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		786CA0881EAB41A70040EEF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		786CA08B1EAB41A70040EEF8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		786CA08D1EAB41A70040EEF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		786CA0A31EAB445A0040EEF8 /* DFAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFAppDelegate.h; sourceTree = "<group>"; };
+		786CA0A41EAB445A0040EEF8 /* DFAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFAppDelegate.m; sourceTree = "<group>"; };
+		786CA0A51EAB445A0040EEF8 /* DFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DFViewController.h; sourceTree = "<group>"; };
+		786CA0A61EAB445A0040EEF8 /* DFViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DFViewController.m; sourceTree = "<group>"; };
+		786CA0B31EAB45E00040EEF8 /* DanmakuRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuRenderer.h; sourceTree = "<group>"; };
+		786CA0B41EAB45E00040EEF8 /* DanmakuRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuRenderer.m; sourceTree = "<group>"; };
+		786CA0B61EAB45F30040EEF8 /* DanmakuCanvas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuCanvas.h; sourceTree = "<group>"; };
+		786CA0B71EAB45F30040EEF8 /* DanmakuCanvas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuCanvas.m; sourceTree = "<group>"; };
+		786CA0B91EAB46180040EEF8 /* Danmaku.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Danmaku.h; sourceTree = "<group>"; };
+		786CA0BA1EAB46AE0040EEF8 /* DanmakuSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuSprite.h; sourceTree = "<group>"; };
+		786CA0BB1EAB46AE0040EEF8 /* DanmakuSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuSprite.m; sourceTree = "<group>"; };
+		786CA0BD1EAB46BE0040EEF8 /* DanmakuSpriteFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuSpriteFactory.h; sourceTree = "<group>"; };
+		786CA0BE1EAB46BE0040EEF8 /* DanmakuSpriteFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuSpriteFactory.m; sourceTree = "<group>"; };
+		786CA0C01EAB46EE0040EEF8 /* DanmakuDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuDescriptor.h; sourceTree = "<group>"; };
+		786CA0C11EAB46EE0040EEF8 /* DanmakuDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuDescriptor.m; sourceTree = "<group>"; };
+		786CA0C31EAB473D0040EEF8 /* DanmakuDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuDispatcher.h; sourceTree = "<group>"; };
+		786CA0C41EAB473D0040EEF8 /* DanmakuDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuDispatcher.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		786CA0761EAB41A70040EEF8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		786CA0701EAB41A70040EEF8 = {
+			isa = PBXGroup;
+			children = (
+				786CA07B1EAB41A70040EEF8 /* Danmaku */,
+				786CA07A1EAB41A70040EEF8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		786CA07A1EAB41A70040EEF8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				786CA0791EAB41A70040EEF8 /* Danmaku.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		786CA07B1EAB41A70040EEF8 /* Danmaku */ = {
+			isa = PBXGroup;
+			children = (
+				786CA0931EAB43000040EEF8 /* Class */,
+				786CA07C1EAB41A70040EEF8 /* Supporting Files */,
+			);
+			path = Danmaku;
+			sourceTree = "<group>";
+		};
+		786CA07C1EAB41A70040EEF8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				786CA0881EAB41A70040EEF8 /* Assets.xcassets */,
+				786CA08A1EAB41A70040EEF8 /* LaunchScreen.storyboard */,
+				786CA08D1EAB41A70040EEF8 /* Info.plist */,
+				786CA07D1EAB41A70040EEF8 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		786CA0931EAB43000040EEF8 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				786CA0A91EAB447D0040EEF8 /* Danmaku */,
+				786CA0A21EAB445A0040EEF8 /* Example */,
+			);
+			path = Class;
+			sourceTree = "<group>";
+		};
+		786CA0A21EAB445A0040EEF8 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				786CA0A31EAB445A0040EEF8 /* DFAppDelegate.h */,
+				786CA0A41EAB445A0040EEF8 /* DFAppDelegate.m */,
+				786CA0A51EAB445A0040EEF8 /* DFViewController.h */,
+				786CA0A61EAB445A0040EEF8 /* DFViewController.m */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		786CA0A91EAB447D0040EEF8 /* Danmaku */ = {
+			isa = PBXGroup;
+			children = (
+				786CA0B91EAB46180040EEF8 /* Danmaku.h */,
+				786CA0AA1EAB447D0040EEF8 /* DanmakuEngine */,
+				786CA0AD1EAB447D0040EEF8 /* DanmakuSprite */,
+				786CA0C71EAB48BB0040EEF8 /* DanmakuHelper */,
+			);
+			path = Danmaku;
+			sourceTree = "<group>";
+		};
+		786CA0AA1EAB447D0040EEF8 /* DanmakuEngine */ = {
+			isa = PBXGroup;
+			children = (
+				786CA0B31EAB45E00040EEF8 /* DanmakuRenderer.h */,
+				786CA0B41EAB45E00040EEF8 /* DanmakuRenderer.m */,
+				786CA0B61EAB45F30040EEF8 /* DanmakuCanvas.h */,
+				786CA0B71EAB45F30040EEF8 /* DanmakuCanvas.m */,
+				786CA0C31EAB473D0040EEF8 /* DanmakuDispatcher.h */,
+				786CA0C41EAB473D0040EEF8 /* DanmakuDispatcher.m */,
+				786CA0BD1EAB46BE0040EEF8 /* DanmakuSpriteFactory.h */,
+				786CA0BE1EAB46BE0040EEF8 /* DanmakuSpriteFactory.m */,
+				786CA0C01EAB46EE0040EEF8 /* DanmakuDescriptor.h */,
+				786CA0C11EAB46EE0040EEF8 /* DanmakuDescriptor.m */,
+			);
+			path = DanmakuEngine;
+			sourceTree = "<group>";
+		};
+		786CA0AD1EAB447D0040EEF8 /* DanmakuSprite */ = {
+			isa = PBXGroup;
+			children = (
+				786CA0BA1EAB46AE0040EEF8 /* DanmakuSprite.h */,
+				786CA0BB1EAB46AE0040EEF8 /* DanmakuSprite.m */,
+			);
+			path = DanmakuSprite;
+			sourceTree = "<group>";
+		};
+		786CA0C71EAB48BB0040EEF8 /* DanmakuHelper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DanmakuHelper;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		786CA0781EAB41A70040EEF8 /* Danmaku */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 786CA0901EAB41A70040EEF8 /* Build configuration list for PBXNativeTarget "Danmaku" */;
+			buildPhases = (
+				786CA0751EAB41A70040EEF8 /* Sources */,
+				786CA0761EAB41A70040EEF8 /* Frameworks */,
+				786CA0771EAB41A70040EEF8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Danmaku;
+			productName = Danmaku;
+			productReference = 786CA0791EAB41A70040EEF8 /* Danmaku.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		786CA0711EAB41A70040EEF8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = lostu.com;
+				TargetAttributes = {
+					786CA0781EAB41A70040EEF8 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = U4VWB4MC9A;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 786CA0741EAB41A70040EEF8 /* Build configuration list for PBXProject "Danmaku" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 786CA0701EAB41A70040EEF8;
+			productRefGroup = 786CA07A1EAB41A70040EEF8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				786CA0781EAB41A70040EEF8 /* Danmaku */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		786CA0771EAB41A70040EEF8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				786CA08C1EAB41A70040EEF8 /* LaunchScreen.storyboard in Resources */,
+				786CA0891EAB41A70040EEF8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		786CA0751EAB41A70040EEF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				786CA07E1EAB41A70040EEF8 /* main.m in Sources */,
+				786CA0A81EAB445A0040EEF8 /* DFViewController.m in Sources */,
+				786CA0BC1EAB46AE0040EEF8 /* DanmakuSprite.m in Sources */,
+				786CA0B51EAB45E00040EEF8 /* DanmakuRenderer.m in Sources */,
+				786CA0A71EAB445A0040EEF8 /* DFAppDelegate.m in Sources */,
+				786CA0C51EAB473D0040EEF8 /* DanmakuDispatcher.m in Sources */,
+				786CA0BF1EAB46BE0040EEF8 /* DanmakuSpriteFactory.m in Sources */,
+				786CA0C21EAB46EE0040EEF8 /* DanmakuDescriptor.m in Sources */,
+				786CA0B81EAB45F30040EEF8 /* DanmakuCanvas.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		786CA08A1EAB41A70040EEF8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				786CA08B1EAB41A70040EEF8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		786CA08E1EAB41A70040EEF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		786CA08F1EAB41A70040EEF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		786CA0911EAB41A70040EEF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = U4VWB4MC9A;
+				INFOPLIST_FILE = Danmaku/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lostu.Danmaku;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		786CA0921EAB41A70040EEF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = U4VWB4MC9A;
+				INFOPLIST_FILE = Danmaku/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lostu.Danmaku;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		786CA0741EAB41A70040EEF8 /* Build configuration list for PBXProject "Danmaku" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				786CA08E1EAB41A70040EEF8 /* Debug */,
+				786CA08F1EAB41A70040EEF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		786CA0901EAB41A70040EEF8 /* Build configuration list for PBXNativeTarget "Danmaku" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				786CA0911EAB41A70040EEF8 /* Debug */,
+				786CA0921EAB41A70040EEF8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 786CA0711EAB41A70040EEF8 /* Project object */;
+}
