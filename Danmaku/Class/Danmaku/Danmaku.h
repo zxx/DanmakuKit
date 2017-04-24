@@ -12,7 +12,6 @@
 #import "DanmakuRenderer.h"
 #import "DanmakuDispatcher.h"
 #import "DanmakuCanvas.h"
-#import "DanmakuDescriptor"
 
 #import "DanmakuSprite.h"
 #import "DanmakuSpriteFactory.h"

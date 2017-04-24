@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7852DB8C1F4C708000E0A171 /* DanmakuReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7852DB8B1F4C707F00E0A171 /* DanmakuReusableView.m */; };
+		7852DB8F1F4C713C00E0A171 /* DanmakuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7852DB8E1F4C713C00E0A171 /* DanmakuView.m */; };
+		7852DBE81F4C98FB00E0A171 /* DanmakuTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7852DBE71F4C98FB00E0A171 /* DanmakuTimer.m */; };
+		785B18751F4DC63300178FB0 /* DanmakuDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 785B18741F4DC63300178FB0 /* DanmakuDefines.m */; };
+		785B18781F4DE60B00178FB0 /* MyDanmakuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 785B18771F4DE60B00178FB0 /* MyDanmakuView.m */; };
+		785B187E1F4DE8A800178FB0 /* MyViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 785B187D1F4DE8A800178FB0 /* MyViewModel.m */; };
 		786CA07E1EAB41A70040EEF8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 786CA07D1EAB41A70040EEF8 /* main.m */; };
 		786CA0891EAB41A70040EEF8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 786CA0881EAB41A70040EEF8 /* Assets.xcassets */; };
 		786CA08C1EAB41A70040EEF8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 786CA08A1EAB41A70040EEF8 /* LaunchScreen.storyboard */; };
@@ -16,11 +22,22 @@
 		786CA0B81EAB45F30040EEF8 /* DanmakuCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 786CA0B71EAB45F30040EEF8 /* DanmakuCanvas.m */; };
 		786CA0BC1EAB46AE0040EEF8 /* DanmakuSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 786CA0BB1EAB46AE0040EEF8 /* DanmakuSprite.m */; };
 		786CA0BF1EAB46BE0040EEF8 /* DanmakuSpriteFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 786CA0BE1EAB46BE0040EEF8 /* DanmakuSpriteFactory.m */; };
-		786CA0C21EAB46EE0040EEF8 /* DanmakuDescriptor.m in Sources */ = {isa = PBXBuildFile; fileRef = 786CA0C11EAB46EE0040EEF8 /* DanmakuDescriptor.m */; };
 		786CA0C51EAB473D0040EEF8 /* DanmakuDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 786CA0C41EAB473D0040EEF8 /* DanmakuDispatcher.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7852DB8A1F4C707F00E0A171 /* DanmakuReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuReusableView.h; sourceTree = "<group>"; };
+		7852DB8B1F4C707F00E0A171 /* DanmakuReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuReusableView.m; sourceTree = "<group>"; };
+		7852DB8D1F4C713C00E0A171 /* DanmakuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuView.h; sourceTree = "<group>"; };
+		7852DB8E1F4C713C00E0A171 /* DanmakuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuView.m; sourceTree = "<group>"; };
+		7852DBE61F4C98FB00E0A171 /* DanmakuTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuTimer.h; sourceTree = "<group>"; };
+		7852DBE71F4C98FB00E0A171 /* DanmakuTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuTimer.m; sourceTree = "<group>"; };
+		785B18731F4DC63300178FB0 /* DanmakuDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuDefines.h; sourceTree = "<group>"; };
+		785B18741F4DC63300178FB0 /* DanmakuDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuDefines.m; sourceTree = "<group>"; };
+		785B18761F4DE60B00178FB0 /* MyDanmakuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyDanmakuView.h; path = ../Danmaku/DanmakuSprite/MyDanmakuView.h; sourceTree = "<group>"; };
+		785B18771F4DE60B00178FB0 /* MyDanmakuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyDanmakuView.m; path = ../Danmaku/DanmakuSprite/MyDanmakuView.m; sourceTree = "<group>"; };
+		785B187C1F4DE8A800178FB0 /* MyViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyViewModel.h; path = ../Danmaku/DanmakuSprite/MyViewModel.h; sourceTree = "<group>"; };
+		785B187D1F4DE8A800178FB0 /* MyViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyViewModel.m; path = ../Danmaku/DanmakuSprite/MyViewModel.m; sourceTree = "<group>"; };
 		786CA0791EAB41A70040EEF8 /* Danmaku.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Danmaku.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		786CA07D1EAB41A70040EEF8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		786CA0881EAB41A70040EEF8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -37,10 +54,8 @@
 		786CA0B91EAB46180040EEF8 /* Danmaku.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Danmaku.h; sourceTree = "<group>"; };
 		786CA0BA1EAB46AE0040EEF8 /* DanmakuSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuSprite.h; sourceTree = "<group>"; };
 		786CA0BB1EAB46AE0040EEF8 /* DanmakuSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuSprite.m; sourceTree = "<group>"; };
-		786CA0BD1EAB46BE0040EEF8 /* DanmakuSpriteFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuSpriteFactory.h; sourceTree = "<group>"; };
-		786CA0BE1EAB46BE0040EEF8 /* DanmakuSpriteFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuSpriteFactory.m; sourceTree = "<group>"; };
-		786CA0C01EAB46EE0040EEF8 /* DanmakuDescriptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuDescriptor.h; sourceTree = "<group>"; };
-		786CA0C11EAB46EE0040EEF8 /* DanmakuDescriptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuDescriptor.m; sourceTree = "<group>"; };
+		786CA0BD1EAB46BE0040EEF8 /* DanmakuSpriteFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DanmakuSpriteFactory.h; path = ../DanmakuEngine/DanmakuSpriteFactory.h; sourceTree = "<group>"; };
+		786CA0BE1EAB46BE0040EEF8 /* DanmakuSpriteFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DanmakuSpriteFactory.m; path = ../DanmakuEngine/DanmakuSpriteFactory.m; sourceTree = "<group>"; };
 		786CA0C31EAB473D0040EEF8 /* DanmakuDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuDispatcher.h; sourceTree = "<group>"; };
 		786CA0C41EAB473D0040EEF8 /* DanmakuDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuDispatcher.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +123,10 @@
 				786CA0A41EAB445A0040EEF8 /* DFAppDelegate.m */,
 				786CA0A51EAB445A0040EEF8 /* DFViewController.h */,
 				786CA0A61EAB445A0040EEF8 /* DFViewController.m */,
+				785B18761F4DE60B00178FB0 /* MyDanmakuView.h */,
+				785B18771F4DE60B00178FB0 /* MyDanmakuView.m */,
+				785B187C1F4DE8A800178FB0 /* MyViewModel.h */,
+				785B187D1F4DE8A800178FB0 /* MyViewModel.m */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -118,7 +137,6 @@
 				786CA0B91EAB46180040EEF8 /* Danmaku.h */,
 				786CA0AA1EAB447D0040EEF8 /* DanmakuEngine */,
 				786CA0AD1EAB447D0040EEF8 /* DanmakuSprite */,
-				786CA0C71EAB48BB0040EEF8 /* DanmakuHelper */,
 			);
 			path = Danmaku;
 			sourceTree = "<group>";
@@ -128,14 +146,14 @@
 			children = (
 				786CA0B31EAB45E00040EEF8 /* DanmakuRenderer.h */,
 				786CA0B41EAB45E00040EEF8 /* DanmakuRenderer.m */,
-				786CA0B61EAB45F30040EEF8 /* DanmakuCanvas.h */,
-				786CA0B71EAB45F30040EEF8 /* DanmakuCanvas.m */,
 				786CA0C31EAB473D0040EEF8 /* DanmakuDispatcher.h */,
 				786CA0C41EAB473D0040EEF8 /* DanmakuDispatcher.m */,
-				786CA0BD1EAB46BE0040EEF8 /* DanmakuSpriteFactory.h */,
-				786CA0BE1EAB46BE0040EEF8 /* DanmakuSpriteFactory.m */,
-				786CA0C01EAB46EE0040EEF8 /* DanmakuDescriptor.h */,
-				786CA0C11EAB46EE0040EEF8 /* DanmakuDescriptor.m */,
+				786CA0B61EAB45F30040EEF8 /* DanmakuCanvas.h */,
+				786CA0B71EAB45F30040EEF8 /* DanmakuCanvas.m */,
+				7852DBE61F4C98FB00E0A171 /* DanmakuTimer.h */,
+				7852DBE71F4C98FB00E0A171 /* DanmakuTimer.m */,
+				785B18731F4DC63300178FB0 /* DanmakuDefines.h */,
+				785B18741F4DC63300178FB0 /* DanmakuDefines.m */,
 			);
 			path = DanmakuEngine;
 			sourceTree = "<group>";
@@ -143,17 +161,16 @@
 		786CA0AD1EAB447D0040EEF8 /* DanmakuSprite */ = {
 			isa = PBXGroup;
 			children = (
+				786CA0BD1EAB46BE0040EEF8 /* DanmakuSpriteFactory.h */,
+				786CA0BE1EAB46BE0040EEF8 /* DanmakuSpriteFactory.m */,
 				786CA0BA1EAB46AE0040EEF8 /* DanmakuSprite.h */,
 				786CA0BB1EAB46AE0040EEF8 /* DanmakuSprite.m */,
+				7852DB8A1F4C707F00E0A171 /* DanmakuReusableView.h */,
+				7852DB8B1F4C707F00E0A171 /* DanmakuReusableView.m */,
+				7852DB8D1F4C713C00E0A171 /* DanmakuView.h */,
+				7852DB8E1F4C713C00E0A171 /* DanmakuView.m */,
 			);
 			path = DanmakuSprite;
-			sourceTree = "<group>";
-		};
-		786CA0C71EAB48BB0040EEF8 /* DanmakuHelper */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = DanmakuHelper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,12 +247,17 @@
 				786CA07E1EAB41A70040EEF8 /* main.m in Sources */,
 				786CA0A81EAB445A0040EEF8 /* DFViewController.m in Sources */,
 				786CA0BC1EAB46AE0040EEF8 /* DanmakuSprite.m in Sources */,
+				7852DB8F1F4C713C00E0A171 /* DanmakuView.m in Sources */,
 				786CA0B51EAB45E00040EEF8 /* DanmakuRenderer.m in Sources */,
 				786CA0A71EAB445A0040EEF8 /* DFAppDelegate.m in Sources */,
 				786CA0C51EAB473D0040EEF8 /* DanmakuDispatcher.m in Sources */,
 				786CA0BF1EAB46BE0040EEF8 /* DanmakuSpriteFactory.m in Sources */,
-				786CA0C21EAB46EE0040EEF8 /* DanmakuDescriptor.m in Sources */,
 				786CA0B81EAB45F30040EEF8 /* DanmakuCanvas.m in Sources */,
+				785B18751F4DC63300178FB0 /* DanmakuDefines.m in Sources */,
+				7852DBE81F4C98FB00E0A171 /* DanmakuTimer.m in Sources */,
+				785B187E1F4DE8A800178FB0 /* MyViewModel.m in Sources */,
+				7852DB8C1F4C708000E0A171 /* DanmakuReusableView.m in Sources */,
+				785B18781F4DE60B00178FB0 /* MyDanmakuView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

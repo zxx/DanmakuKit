@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DanmakuDefines.h"
+
+@class DanmakuSprite, DanmakuDescriptor;
 
 @interface DanmakuSpriteFactory : NSObject
+
++ (DanmakuSprite *)createDanmaku:(DanmakuType)type
+                       viewClass:(NSString *)viewClass
+                       viewModel:(id)viewModel;
 
 @end

@@ -7,7 +7,18 @@
 //
 
 #import "DanmakuSpriteFactory.h"
+#import "DanmakuSprite.h"
 
 @implementation DanmakuSpriteFactory
+
++ (DanmakuSprite *)createDanmaku:(DanmakuType)type
+                       viewClass:(NSString *)viewClass
+                       viewModel:(id)viewModel
+{
+    DanmakuSprite *danmaku = [DanmakuSprite new];
+    danmaku.viewClass = viewClass;
+    danmaku.viewModel = viewModel;
+    return danmaku;
+}
 
 @end
