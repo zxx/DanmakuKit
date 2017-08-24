@@ -15,7 +15,7 @@
 @property (nonatomic, copy) NSString *viewClass;
 @property (nonatomic, strong) id viewModel;
 
-@property (nonatomic, strong, readonly) DanmakuView *bindingView;
+@property (nonatomic, strong) DanmakuView *bindingView;
 
 @property (nonatomic, assign) NSRange stripRange;
 

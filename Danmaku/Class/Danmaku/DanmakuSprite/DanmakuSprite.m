@@ -12,7 +12,7 @@
 
 @interface DanmakuSprite()<CAAnimationDelegate>
 
-@property (nonatomic, strong) DanmakuView *bindingView;
+//@property (nonatomic, strong) DanmakuView *bindingView;
 
 @property (nonatomic, copy) void(^completionHandler)(DanmakuSprite *);
 
@@ -29,18 +29,27 @@
     CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"position"];
     anim.fromValue = [NSValue valueWithCGPoint:CGPointMake(CGRectGetMidX(self.beginFrame),
                                                            CGRectGetMidY(self.beginFrame))];
-    anim.toValue = [NSValue valueWithCGPoint:CGPointMake(CGRectGetMidX(self.endFrame),
-                                                         CGRectGetMidY(self.endFrame))];
+    anim.byValue = [NSValue valueWithCGPoint:CGPointMake(-distance, 0)];
+//    anim.toValue = [NSValue valueWithCGPoint:CGPointMake(CGRectGetMidX(self.endFrame),
+//                                                         CGRectGetMidY(self.endFrame))];
     anim.duration = distance * 0.05;
     anim.removedOnCompletion = YES;
+    anim.fillMode = kCAFillModeForwards;
     anim.delegate = self;
     
     [self.bindingView.layer addAnimation:anim forKey:@"run"];
+    
+    if (self.bindingView.layer.presentationLayer) {
+        NSLog(@"Presentation: %@, %@", self.bindingView.layer.presentationLayer, NSStringFromCGRect(self.bindingView.layer.presentationLayer.frame));
+    }
+    NSLog(@"Model: %@, %@", self.bindingView.layer.modelLayer, NSStringFromCGRect(self.bindingView.layer.modelLayer.frame));
+    NSLog(@"begin: %@， end:%@", NSStringFromCGRect(self.beginFrame), NSStringFromCGRect(self.endFrame));
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
     [self deactive];
+    NSLog(@"stop: %@", self);
     
     if (self.completionHandler) {
         self.completionHandler(self);
@@ -50,6 +59,17 @@
 - (void)deactive
 {
     [self.bindingView removeFromSuperview];
+}
+
+- (void)setStripRange:(NSRange)stripRange
+{
+    _stripRange = stripRange;
+    
+    [_viewModel setValue:[NSString stringWithFormat:@"%@ %@",
+                          [_viewModel valueForKey:@"text"],
+                          NSStringFromRange(stripRange)]
+                  forKey:@"text"];
+    self.bindingView.viewModel = _viewModel;
 }
 
 - (void)setCompletionHandler:(void (^)(DanmakuSprite *))handler
@@ -77,6 +97,11 @@
 {
     // Check ...
     return YES;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<DanmakuSprite: %@>", NSStringFromRange(_stripRange)];
 }
 
 @end

@@ -25,7 +25,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     
     DanmakuRenderer *renderer = [[DanmakuRenderer alloc] init];
-    renderer.view.frame = CGRectMake(0, 120, 375, 500);
+    renderer.view.frame = CGRectMake(0, 120, 375, 200);
     renderer.view.backgroundColor = [UIColor yellowColor];
     [self.view addSubview:renderer.view];
     [renderer start];
@@ -41,17 +41,20 @@
     [self.view addSubview:button];
 }
 
+static int count = 0;
 - (void)onClick:(UIButton *)button
 {
-    for (int i = 0; i < 20; ++i) {
+    for (int i = 0; i < 21; ++i) {
         
         MyViewModel *viewModel = [MyViewModel new];
-        viewModel.text = [NSString stringWithFormat:@"test-%d", i];
+        viewModel.text = [NSString stringWithFormat:@"test-%d", count];
         DanmakuSprite *danmaku = [DanmakuSpriteFactory createDanmaku:DanmakuTypeRightToLeft
                                                            viewClass:@"MyDanmakuView"
                                                            viewModel:viewModel];
         [self.danmakuRender accept:danmaku];
     }
+    
+    count++;
 }
 
 @end

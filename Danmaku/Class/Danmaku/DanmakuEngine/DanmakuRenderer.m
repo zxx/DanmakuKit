@@ -103,11 +103,13 @@
     [self.canvas addSubview:sprite.bindingView];
     NSRange range = [self getSpriteStripRange:sprite];
     if (range.location == NSNotFound) {
+        // 这里很重要，莫名其妙位置会有问题
         [sprite.bindingView removeFromSuperview];
+        sprite.bindingView = nil;
         return NO;
     }
     
-    sprite.stripRange = range;
+    // sprite.stripRange = range;
     sprite.beginFrame = [self.canvas getBeginFrame:sprite];
     sprite.endFrame = [self.canvas getEndFrame:sprite];
     
@@ -124,14 +126,11 @@
 /**
  * 计算 Sprite 位置
  */
+static NSRange _lastRange;
 - (NSRange)getSpriteStripRange:(DanmakuSprite *)sprite
 {
-    // 1. 基本 Strip 信息（StripNumber, StripHeight)
-    CGFloat stripHeight = self.canvas.stripHeight;
-    // 2. 计算 Sprite 所需的 StipNumber
-    CGFloat stripNumber = CGRectGetHeight(sprite.bindingView.bounds) / stripHeight;
+    CGFloat needStripNumber = CGRectGetHeight(sprite.bindingView.bounds) / self.canvas.stripHeight;
     
-    // 3. 遍历所有 Strip
     NSRange stripRange = NSMakeRange(NSNotFound, 0);
     NSUInteger i = 0;
     while (i < self.canvas.stripNumber) {
@@ -149,26 +148,43 @@
         
         if (stripRange.location == NSNotFound) {
             stripRange.location = i;
-            stripRange.length = 0;
+            stripRange.length = 1;
         } else {
             stripRange.length++;
         }
         
-        if (stripRange.length >= stripNumber) {
+        if (stripRange.length >= needStripNumber) {
+            if (stripRange.location == _lastRange.location) {
+                DanmakuSprite *s = self.stripToSprite[@(stripRange.location)];
+                BOOL isRightIn = [self.canvas checkIsRightIn:s];
+                NSLog(@"重合: %@", isRightIn ? @"YES":@"NO");
+//                if (s.bindingView.layer.presentationLayer) {
+//                    NSLog(@"Presentation: %@, %@", s.bindingView.layer.presentationLayer, NSStringFromCGRect(s.bindingView.layer.presentationLayer.frame));
+//                }
+//                NSLog(@"Model: %@, %@", s.bindingView.layer.modelLayer, NSStringFromCGRect(s.bindingView.layer.modelLayer.frame));
+//                NSLog(@"begin: %@， end:%@", NSStringFromCGRect(s.beginFrame), NSStringFromCGRect(s.endFrame));
+            }
+            
             sprite.stripRange = stripRange;
-            // 放到 location 集合中
+            
+            
+            
+            
             self.stripToSprite[@(stripRange.location)] = sprite;
+            
+            _lastRange= stripRange;
+            
+            NSLog(@"%@", [sprite.viewModel valueForKey:@"text"]);
             break;
         }
         
         i += 1;
     }
     
-    if (stripRange.length < stripNumber) {
+    if (stripRange.length < needStripNumber) {
         stripRange.location = NSNotFound;
     }
     
-    NSLog(@"%@", NSStringFromRange(stripRange));
     return stripRange;
 }
 
