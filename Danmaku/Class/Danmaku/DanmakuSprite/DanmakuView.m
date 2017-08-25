@@ -38,7 +38,7 @@
     return CGSizeZero;
 }
 
-- (CGSize)viewSizeWithViewModel:(id)viewModel
++ (CGSize)viewSizeWithViewModel:(id)viewModel
 {
     return CGSizeZero;
 }

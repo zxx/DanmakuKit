@@ -8,7 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-@class DanmakuCanvas, DanmakuView;
+@class DanmakuCanvas, DanmakuView, DanmakuSprite;
+
+@protocol DanmakuSpriteDeleagte <NSObject>
+
+- (void)danmakuDidReachTheEnd:(DanmakuSprite *)danmaku;
+
+@end
 
 @interface DanmakuSprite : NSObject
 
@@ -19,12 +25,16 @@
 
 @property (nonatomic, assign) NSRange stripRange;
 
+@property (nonatomic, assign) CGSize displaySize;
+
 @property (nonatomic, assign) CGRect beginFrame;
 @property (nonatomic, assign) CGRect endFrame;
 
-- (void)setCompletionHandler:(void(^)(DanmakuSprite *))handler;
+@property (nonatomic, weak) id<DanmakuSpriteDeleagte> delegate;
 
 - (void)active;
+- (void)active:(DanmakuCanvas *)canvas;
+
 - (void)deactive;
 
 - (BOOL)isValid;

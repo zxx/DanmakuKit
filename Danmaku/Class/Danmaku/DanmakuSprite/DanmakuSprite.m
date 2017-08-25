@@ -12,16 +12,20 @@
 
 @interface DanmakuSprite()<CAAnimationDelegate>
 
-//@property (nonatomic, strong) DanmakuView *bindingView;
-
-@property (nonatomic, copy) void(^completionHandler)(DanmakuSprite *);
-
 @end
 
 @implementation DanmakuSprite
 
+- (void)active:(DanmakuCanvas *)canvas
+{
+    [canvas draw:self];
+    
+    [self active];
+}
+
 - (void)active
 {
+    // BindingView 不能先加到 Canvas 上，不然 PresentationLayer 的初始位置就会出错。以后找原因
     self.bindingView.frame = self.beginFrame;
     
     CGFloat distance = fabs(CGRectGetMidX(self.beginFrame) - CGRectGetMidX(self.endFrame));
@@ -29,9 +33,8 @@
     CABasicAnimation *anim = [CABasicAnimation animationWithKeyPath:@"position"];
     anim.fromValue = [NSValue valueWithCGPoint:CGPointMake(CGRectGetMidX(self.beginFrame),
                                                            CGRectGetMidY(self.beginFrame))];
-    anim.byValue = [NSValue valueWithCGPoint:CGPointMake(-distance, 0)];
-//    anim.toValue = [NSValue valueWithCGPoint:CGPointMake(CGRectGetMidX(self.endFrame),
-//                                                         CGRectGetMidY(self.endFrame))];
+    anim.toValue = [NSValue valueWithCGPoint:CGPointMake(CGRectGetMidX(self.endFrame),
+                                                         CGRectGetMidY(self.endFrame))];
     anim.duration = distance * 0.05;
     anim.removedOnCompletion = YES;
     anim.fillMode = kCAFillModeForwards;
@@ -49,10 +52,9 @@
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
 {
     [self deactive];
-    NSLog(@"stop: %@", self);
     
-    if (self.completionHandler) {
-        self.completionHandler(self);
+    if ([self.delegate respondsToSelector:@selector(danmakuDidReachTheEnd:)]) {
+        [self.delegate danmakuDidReachTheEnd:self];
     }
 }
 
@@ -63,6 +65,10 @@
 
 - (void)setStripRange:(NSRange)stripRange
 {
+    if (NSEqualRanges(_stripRange, stripRange)) {
+        return;
+    }
+    
     _stripRange = stripRange;
     
     [_viewModel setValue:[NSString stringWithFormat:@"%@ %@",
@@ -72,9 +78,14 @@
     self.bindingView.viewModel = _viewModel;
 }
 
-- (void)setCompletionHandler:(void (^)(DanmakuSprite *))handler
+- (CGSize)displaySize
 {
-    _completionHandler = handler;
+    if (CGSizeEqualToSize(_displaySize, CGSizeZero)) {
+        // _displaySize = [NSClassFromString(self.viewClass) viewSizeWithViewModel:self.viewModel];
+        _displaySize = [self.bindingView viewSize];
+    }
+    
+    return _displaySize;
 }
 
 - (DanmakuView *)bindingView
@@ -87,8 +98,9 @@
                                          userInfo:nil];
         }
         _bindingView = [[cls alloc] initWithIdentifier:nil];
+        _bindingView.clipsToBounds = YES;
         _bindingView.viewModel = self.viewModel;
-        _bindingView.bounds = (CGRect){CGPointZero, _bindingView.viewSize };
+        _bindingView.bounds = (CGRect){CGPointZero, self.displaySize };
     }
     return _bindingView;
 }

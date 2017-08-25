@@ -44,7 +44,7 @@
 static int count = 0;
 - (void)onClick:(UIButton *)button
 {
-    for (int i = 0; i < 21; ++i) {
+    for (int i = count; i < count + 20; ++i) {
         
         MyViewModel *viewModel = [MyViewModel new];
         viewModel.text = [NSString stringWithFormat:@"test-%d", count];
@@ -54,7 +54,7 @@ static int count = 0;
         [self.danmakuRender accept:danmaku];
     }
     
-    count++;
+    count += 21;
 }
 
 @end

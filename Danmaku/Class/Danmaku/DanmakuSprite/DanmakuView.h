@@ -18,6 +18,6 @@
 - (instancetype)initWithIdentifier:(NSString *)identifier;
 
 - (CGSize)viewSize;
-- (CGSize)viewSizeWithViewModel:(id)viewModel;
++ (CGSize)viewSizeWithViewModel:(id)viewModel;
 
 @end

@@ -30,6 +30,13 @@
     _stripHeight = CGRectGetHeight(self.bounds) / STRIP_NUM;
 }
 
+- (void)draw:(DanmakuSprite *)sprite
+{
+    [self addSubview:sprite.bindingView];
+    
+    [sprite active];
+}
+
 - (CGRect)getBeginFrame:(DanmakuSprite *)danmaku
 {
     CGFloat x = CGRectGetMaxX(self.bounds);

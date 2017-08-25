@@ -14,7 +14,7 @@
 #import "DanmakuSprite.h"
 #import "DanmakuView.h"
 
-@interface DanmakuRenderer()<DanmakuDispatcherDelegate, DanmakuTimerDelegate>
+@interface DanmakuRenderer()<DanmakuDispatcherDelegate, DanmakuTimerDelegate, DanmakuSpriteDeleagte>
 
 @property (nonatomic, strong) DanmakuCanvas     *canvas;
 @property (nonatomic, strong) DanmakuDispatcher *dispatcher;
@@ -94,32 +94,30 @@
     return [self activeSprite:sprite];
 }
 
+- (void)danmakuDidReachTheEnd:(DanmakuSprite *)sprite
+{
+    NSNumber *key = @(sprite.stripRange.location);
+    if (self.stripToSprite[key] && [self.stripToSprite[key] isEqual:sprite]) {
+        [self.stripToSprite removeObjectForKey:key];
+    }
+}
+
 /**
  * 如果 return YES，则在 WaitingList 中移除这个 Sprite
  * 相反 return NO， 则让这个 Sprite 继续保留在 WaitingList 中
  */
 - (BOOL)activeSprite:(DanmakuSprite *)sprite
 {
-    [self.canvas addSubview:sprite.bindingView];
     NSRange range = [self getSpriteStripRange:sprite];
     if (range.location == NSNotFound) {
-        // 这里很重要，莫名其妙位置会有问题
-        [sprite.bindingView removeFromSuperview];
-        sprite.bindingView = nil;
         return NO;
     }
     
-    // sprite.stripRange = range;
+    sprite.stripRange = range;
     sprite.beginFrame = [self.canvas getBeginFrame:sprite];
     sprite.endFrame = [self.canvas getEndFrame:sprite];
-    
-    [sprite setCompletionHandler:^(DanmakuSprite *sprite) {
-        NSNumber *key = @(sprite.stripRange.location);
-        if (self.stripToSprite[key] && [self.stripToSprite[key] isEqual:sprite]) {
-            [self.stripToSprite removeObjectForKey:key];
-        }
-    }];
-    [sprite active];
+    sprite.delegate = self;
+    [self.canvas draw:sprite];
     return YES;
 }
 
@@ -129,7 +127,7 @@
 static NSRange _lastRange;
 - (NSRange)getSpriteStripRange:(DanmakuSprite *)sprite
 {
-    CGFloat needStripNumber = CGRectGetHeight(sprite.bindingView.bounds) / self.canvas.stripHeight;
+    CGFloat needStripNumber = sprite.displaySize.height / self.canvas.stripHeight;
     
     NSRange stripRange = NSMakeRange(NSNotFound, 0);
     NSUInteger i = 0;
@@ -158,18 +156,9 @@ static NSRange _lastRange;
                 DanmakuSprite *s = self.stripToSprite[@(stripRange.location)];
                 BOOL isRightIn = [self.canvas checkIsRightIn:s];
                 NSLog(@"重合: %@", isRightIn ? @"YES":@"NO");
-//                if (s.bindingView.layer.presentationLayer) {
-//                    NSLog(@"Presentation: %@, %@", s.bindingView.layer.presentationLayer, NSStringFromCGRect(s.bindingView.layer.presentationLayer.frame));
-//                }
-//                NSLog(@"Model: %@, %@", s.bindingView.layer.modelLayer, NSStringFromCGRect(s.bindingView.layer.modelLayer.frame));
-//                NSLog(@"begin: %@， end:%@", NSStringFromCGRect(s.beginFrame), NSStringFromCGRect(s.endFrame));
             }
             
             sprite.stripRange = stripRange;
-            
-            
-            
-            
             self.stripToSprite[@(stripRange.location)] = sprite;
             
             _lastRange= stripRange;

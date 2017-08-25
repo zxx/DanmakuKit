@@ -24,4 +24,6 @@
 - (BOOL)checkIsRightIn:(DanmakuSprite *)danmaku;
 - (BOOL)checkIsLeftIn:(DanmakuSprite *)danmaku;
 
+- (void)draw:(DanmakuSprite *)sprite;
+
 @end

@@ -45,6 +45,11 @@
     return self.textLabel.bounds.size;
 }
 
++ (CGSize)viewSizeWithViewModel:(id)viewModel
+{
+    return CGRectMake(0, 0, arc4random_uniform(100) +  200, 20 + arc4random_uniform(10)).size;
+}
+
 #pragma mark -
 
 - (UILabel *)textLabel
