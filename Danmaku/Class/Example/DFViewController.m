@@ -44,7 +44,7 @@
 static int count = 0;
 - (void)onClick:(UIButton *)button
 {
-    for (int i = count; i < count + 20; ++i) {
+    for (int i = count; i < count + 50; ++i) {
         
         MyViewModel *viewModel = [MyViewModel new];
         viewModel.text = [NSString stringWithFormat:@"test-%d", i];

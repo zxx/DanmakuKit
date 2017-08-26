@@ -51,7 +51,12 @@
         if ([self.delegate dispatcher:self activeSprite:sprite]) {
             [_waitingSprites removeObject:sprite];
         } else {
-            // 大致是不需要遍历了
+            // 1. 如果弹幕高度一样，那就直接 break
+            // 2. 如果弹幕高度不一样，只要_watingDanmakus 数不是很大 不 break 也无妨
+            
+            // 优化：
+            // 1. 视情况而定，最好 Danmaku.displaySize 提前计算好
+            // 2. 代理返回类型可以要 NSRange 类型，以便能在这里直接 display needStripNumber 更下的弹幕
             break;
         }
     }

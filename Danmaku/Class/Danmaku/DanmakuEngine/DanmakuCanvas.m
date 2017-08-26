@@ -37,19 +37,28 @@
     [sprite active];
 }
 
-- (CGRect)getBeginFrame:(DanmakuSprite *)danmaku
+- (CGRect)getBeginFrame:(DanmakuSprite *)danmaku alignment:(DanmakuAlignment)alignment
 {
-    CGFloat x = CGRectGetMaxX(self.bounds);
-    CGFloat y = danmaku.stripRange.location * self.stripHeight;
+    CGFloat y = 0.0;
+    if (alignment == DanmakuAlignmentTop) {
+        y = danmaku.stripRange.location * self.stripHeight;
+    } else {
+        y = (danmaku.stripRange.location - danmaku.stripRange.length) * self.stripHeight;
+    }
     
     CGRect frame = danmaku.bindingView.frame;
-    frame.origin = CGPointMake(x, y);
+    frame.origin = CGPointMake(CGRectGetMaxX(self.bounds), y);
     return frame;
 }
 
-- (CGRect)getEndFrame:(DanmakuSprite *)danmaku
+- (CGRect)getEndFrame:(DanmakuSprite *)danmaku alignment:(DanmakuAlignment)alignment
 {
-    CGFloat y = danmaku.stripRange.location * self.stripHeight;
+    CGFloat y = 0.0;
+    if (alignment == DanmakuAlignmentTop) {
+        y = danmaku.stripRange.location * self.stripHeight;
+    } else {
+        y = (danmaku.stripRange.location - danmaku.stripRange.length) * self.stripHeight;
+    }
     
     CGRect frame = danmaku.bindingView.frame;
     frame.origin = CGPointMake(-CGRectGetWidth(frame), y);

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DanmakuRenderer.h"
 
 @class DanmakuSprite;
 
@@ -20,9 +21,8 @@
 
 - (void)draw:(DanmakuSprite *)sprite;
 
-
-- (CGRect)getBeginFrame:(DanmakuSprite *)danmaku;
-- (CGRect)getEndFrame:(DanmakuSprite *)danmaku;
+- (CGRect)getBeginFrame:(DanmakuSprite *)danmaku alignment:(DanmakuAlignment)alignment;
+- (CGRect)getEndFrame:(DanmakuSprite *)danmaku alignment:(DanmakuAlignment)alignment;
 
 - (BOOL)checkIsRightIn:(DanmakuSprite *)danmaku;
 - (BOOL)checkIsLeftIn:(DanmakuSprite *)danmaku;

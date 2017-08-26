@@ -41,6 +41,8 @@
         
         _viewCache = [NSMutableSet set];
         _stripToSprite = @{}.mutableCopy;
+        
+        _danmakuAlignment = DanmakuAlignmentBottom;
     }
     return self;
 }
@@ -110,24 +112,28 @@
  */
 - (BOOL)activeSprite:(DanmakuSprite *)sprite
 {
-    NSRange range = [self getSpriteStripRange:sprite];
-    if (range.location == NSNotFound) {
+    NSRange stripRange = NSMakeRange(NSNotFound, 0);
+    if (_danmakuAlignment == DanmakuAlignmentTop) {
+        stripRange = [self getDanmakuStripRangeAlignTop:sprite];
+    } else {
+        stripRange = [self getDanmakuStripRangeAlignBottom:sprite];
+    }
+    if (stripRange.location == NSNotFound) {
         return NO;
     }
     
-    sprite.stripRange = range;
-    sprite.beginFrame = [self.canvas getBeginFrame:sprite];
-    sprite.endFrame = [self.canvas getEndFrame:sprite];
+    sprite.stripRange = stripRange;
+    sprite.beginFrame = [self.canvas getBeginFrame:sprite alignment:_danmakuAlignment];
+    sprite.endFrame = [self.canvas getEndFrame:sprite alignment:_danmakuAlignment];
     sprite.delegate = self;
     [self.canvas draw:sprite];
     return YES;
 }
 
 /**
- * 计算 Sprite 位置
+ * 居上
  */
-static NSRange _lastRange;
-- (NSRange)getSpriteStripRange:(DanmakuSprite *)sprite
+- (NSRange)getDanmakuStripRangeAlignTop:(DanmakuSprite *)sprite
 {
     CGFloat needStripNumber = sprite.displaySize.height / self.canvas.stripHeight;
     
@@ -154,18 +160,8 @@ static NSRange _lastRange;
         }
         
         if (stripRange.length >= needStripNumber) {
-            if (stripRange.location == _lastRange.location) {
-                DanmakuSprite *s = self.stripToSprite[@(stripRange.location)];
-                BOOL isRightIn = [self.canvas checkIsRightIn:s];
-                NSLog(@"重合: %@", isRightIn ? @"YES":@"NO");
-            }
-            
             sprite.stripRange = stripRange;
             self.stripToSprite[@(stripRange.location)] = sprite;
-            
-            _lastRange= stripRange;
-            
-            NSLog(@"%@", [sprite.viewModel valueForKey:@"text"]);
             break;
         }
         
@@ -178,6 +174,52 @@ static NSRange _lastRange;
     
     return stripRange;
 }
+
+/*
+ * 居下
+ */
+- (NSRange)getDanmakuStripRangeAlignBottom:(DanmakuSprite *)sprite
+{
+    CGFloat needStripNumber = sprite.displaySize.height / self.canvas.stripHeight;
+    
+    NSRange stripRange = NSMakeRange(NSNotFound, 0);
+    NSInteger i = self.canvas.stripNumber;
+    while (i >= 0) {
+        NSNumber *key = @(i);
+        // 只判断当前 Strip 里最后一个 Sprite 的位置
+        DanmakuSprite *lastSprite = self.stripToSprite[key];
+        
+        // 如果当前 Strip 不可用，直接跳到 i - sprite.stripRange.length 处
+        if (lastSprite && ![self.canvas checkIsRightIn:lastSprite]) {
+            i -= MAX(lastSprite.stripRange.length, 1);
+            
+            stripRange.location = NSNotFound;
+            continue;
+        }
+        
+        if (stripRange.location == NSNotFound) {
+            stripRange.location = i;
+            stripRange.length = 1;
+        } else {
+            stripRange.length++;
+        }
+        
+        if (stripRange.length >= needStripNumber) {
+            sprite.stripRange = stripRange;
+            self.stripToSprite[@(stripRange.location)] = sprite;
+            break;
+        }
+        
+        i -= 1;
+    }
+    
+    if (stripRange.length < needStripNumber) {
+        stripRange.location = NSNotFound;
+    }
+    
+    return stripRange;
+}
+
 
 #pragma mark -
 

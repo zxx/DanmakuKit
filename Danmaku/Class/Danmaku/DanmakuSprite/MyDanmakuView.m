@@ -82,7 +82,7 @@
 {
     return CGRectMake(0,
                       0,
-                      200 + arc4random_uniform(80),
+                      150 + arc4random_uniform(80),
                       30 + arc4random_uniform(10)).size;
 }
 

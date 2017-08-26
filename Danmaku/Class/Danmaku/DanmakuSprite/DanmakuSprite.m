@@ -27,7 +27,7 @@
                                                            CGRectGetMidY(self.beginFrame))];
     anim.toValue = [NSValue valueWithCGPoint:CGPointMake(CGRectGetMidX(self.endFrame),
                                                          CGRectGetMidY(self.endFrame))];
-    anim.duration = distance * 0.05;
+    anim.duration = distance * 0.01;
     anim.removedOnCompletion = YES;
     anim.fillMode = kCAFillModeForwards;
     anim.delegate = self;
