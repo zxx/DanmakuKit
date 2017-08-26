@@ -79,3 +79,47 @@
 }
 
 @end
+
+@implementation DanmakuCanvas (TouchEventHandler)
+/*
+ *              ┌────────────────────────────┐
+ *              │      Point in Canvas       │
+ *              │         { 20, 15 }         │
+ *              └────────────────────────────┘
+ *                  ▲
+ *           ┌──────┼───────────────────────────┐
+ *           │      │                           │
+ *           │  ┌ ─ ┼ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┐   │┌───────────────────────────┐
+ *           │  │   ■                       │   ││   ■                       │
+ *           │      │ PresentationLayer         ││   │    ModelLayer         │
+ *           │  │   │                       │   ││   │                       │
+ *           │   ─ ─│─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─    │└───┼───────────────────────┘
+ *           │      │                           │    │
+ *           └──────┼───────────────────────────┘    │
+ *                  ▼                                ▼
+ *              ┌────────────────────────────┐   ┌────────────────────────────┐
+ *              │ Point in PresentationLayer │   │ Point in ModelLayer(View)  │
+ *              │          { 5, 5 }          │   │          { 5, 5 }          │
+ *              └────────────────────────────┘   └────────────────────────────┘
+ */
+- (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
+{
+    for (DanmakuView *view in self.subviews) {
+        // PresentationLayer 坐标系上的点 和 ModelLayer 坐标系上的点「值」是一样的
+        CGPoint pointInDanmaku = [view.layer.presentationLayer convertPoint:point
+                                                                  fromLayer:self.layer];
+#ifdef DEBUG
+        if ([view.layer.presentationLayer containsPoint:pointInDanmaku]) {
+            NSLog(@"%@", [view.viewModel valueForKey:@"text"]);
+        }
+#endif
+        UIView *responder = [view hitTest:pointInDanmaku withEvent:event];
+        if (responder) {
+            return responder;
+        }
+    }
+    
+    return [super hitTest:point withEvent:event];
+}
+
+@end

@@ -44,8 +44,8 @@
 
 - (void)tick:(NSTimer *)timer
 {
-    if ([self.delegate respondsToSelector:@selector(DanmakuTimerDidChange:)]) {
-        [self.delegate DanmakuTimerDidChange:self];
+    if ([self.delegate respondsToSelector:@selector(danmakuTimerDidChange:)]) {
+        [self.delegate danmakuTimerDidChange:self];
     }
 }
 

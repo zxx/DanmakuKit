@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+
+typedef NS_ENUM(NSInteger, DanmakuAlignment) {
+    DanmakuAlignmentTop,
+    DanmakuAlignmentBottom,
+};
+
 typedef NS_ENUM(NSInteger, DanmakuRendererState) {
     DanmakuRendererStateIdle,
     DanmakuRendererStateStarted,

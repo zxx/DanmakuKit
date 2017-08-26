@@ -47,7 +47,7 @@ static int count = 0;
     for (int i = count; i < count + 20; ++i) {
         
         MyViewModel *viewModel = [MyViewModel new];
-        viewModel.text = [NSString stringWithFormat:@"test-%d", count];
+        viewModel.text = [NSString stringWithFormat:@"test-%d", i];
         DanmakuSprite *danmaku = [DanmakuSpriteFactory createDanmaku:DanmakuTypeRightToLeft
                                                            viewClass:@"MyDanmakuView"
                                                            viewModel:viewModel];

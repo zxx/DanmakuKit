@@ -80,7 +80,7 @@
 
 #pragma mark - DanmakuTimerDelegate
 
-- (void)DanmakuTimerDidChange:(id)clock
+- (void)danmakuTimerDidChange:(id)clock
 {
     if (self.dispatcher) {
         [self.dispatcher dispatchSprites];

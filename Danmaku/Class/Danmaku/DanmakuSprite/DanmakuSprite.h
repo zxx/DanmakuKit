@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, DanmakuType) {
+    DanmakuTypeLeftToRight,
+    DanmakuTypeRightToLeft,
+};
+
 @class DanmakuCanvas, DanmakuView, DanmakuSprite;
 
 @protocol DanmakuSpriteDeleagte <NSObject>

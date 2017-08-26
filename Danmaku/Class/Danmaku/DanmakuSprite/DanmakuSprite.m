@@ -42,11 +42,13 @@
     
     [self.bindingView.layer addAnimation:anim forKey:@"run"];
     
+#ifndef DEBUG
     if (self.bindingView.layer.presentationLayer) {
         NSLog(@"Presentation: %@, %@", self.bindingView.layer.presentationLayer, NSStringFromCGRect(self.bindingView.layer.presentationLayer.frame));
     }
     NSLog(@"Model: %@, %@", self.bindingView.layer.modelLayer, NSStringFromCGRect(self.bindingView.layer.modelLayer.frame));
     NSLog(@"begin: %@， end:%@", NSStringFromCGRect(self.beginFrame), NSStringFromCGRect(self.endFrame));
+#endif
 }
 
 - (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
@@ -81,10 +83,9 @@
 - (CGSize)displaySize
 {
     if (CGSizeEqualToSize(_displaySize, CGSizeZero)) {
-        // _displaySize = [NSClassFromString(self.viewClass) viewSizeWithViewModel:self.viewModel];
-        _displaySize = [self.bindingView viewSize];
+        _displaySize = [NSClassFromString(self.viewClass) viewSizeWithViewModel:self.viewModel];
+        // _displaySize = [self.bindingView viewSize];
     }
-    
     return _displaySize;
 }
 

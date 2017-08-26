@@ -37,7 +37,6 @@
 
 - (void)dispatchSprites
 {
-    NSLog(@"=======================");
     // 倒序遍历做 Delete 操作不会 Crash
     for (NSInteger i = _waitingSprites.count - 1; i >= 0; --i) {
         DanmakuSprite *sprite = _waitingSprites[i];

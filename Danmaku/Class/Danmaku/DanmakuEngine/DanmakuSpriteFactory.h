@@ -7,9 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "DanmakuDefines.h"
-
-@class DanmakuSprite, DanmakuDescriptor;
+#import "DanmakuSprite.h"
 
 @interface DanmakuSpriteFactory : NSObject
 

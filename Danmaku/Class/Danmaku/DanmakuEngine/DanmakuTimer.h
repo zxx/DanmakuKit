@@ -12,7 +12,7 @@
 
 @protocol DanmakuTimerDelegate <NSObject>
 
-- (void)DanmakuTimerDidChange:(DanmakuTimer *)clock;
+- (void)danmakuTimerDidChange:(DanmakuTimer *)timer;
 
 @end
 

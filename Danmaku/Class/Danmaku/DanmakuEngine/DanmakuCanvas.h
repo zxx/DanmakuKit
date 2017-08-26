@@ -18,12 +18,13 @@
 @property (nonatomic, assign) CGFloat minItemSpacing;
 @property (nonatomic, assign) CGFloat minLineSpacing;
 
+- (void)draw:(DanmakuSprite *)sprite;
+
+
 - (CGRect)getBeginFrame:(DanmakuSprite *)danmaku;
 - (CGRect)getEndFrame:(DanmakuSprite *)danmaku;
 
 - (BOOL)checkIsRightIn:(DanmakuSprite *)danmaku;
 - (BOOL)checkIsLeftIn:(DanmakuSprite *)danmaku;
-
-- (void)draw:(DanmakuSprite *)sprite;
 
 @end
