@@ -21,7 +21,7 @@
     [self stop];
     
     __weak __typeof (self) weakSelf = self;
-    _timer = [NSTimer timerWithTimeInterval:1.0
+    _timer = [NSTimer timerWithTimeInterval:0.1
                                      target:weakSelf
                                    selector:@selector(tick:)
                                    userInfo:nil

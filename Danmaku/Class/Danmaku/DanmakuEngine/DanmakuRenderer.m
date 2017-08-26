@@ -62,6 +62,11 @@
 - (void)stop
 {
     [self.timer stop];
+    
+    for (UIView *view in self.canvas.subviews) {
+        [view.layer removeAllAnimations];
+        [view removeFromSuperview];
+    }
 }
 
 - (void)accept:(DanmakuSprite *)danmaku
