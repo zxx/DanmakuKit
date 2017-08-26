@@ -10,15 +10,13 @@
 #import "DanmakuDispatcher.h"
 #import "DanmakuCanvas.h"
 #import "DanmakuTimer.h"
-
 #import "DanmakuSprite.h"
-#import "DanmakuView.h"
 
 @interface DanmakuRenderer()<DanmakuDispatcherDelegate, DanmakuTimerDelegate, DanmakuSpriteDeleagte>
 
-@property (nonatomic, strong) DanmakuCanvas     *canvas;
 @property (nonatomic, strong) DanmakuDispatcher *dispatcher;
-@property (nonatomic, strong) DanmakuTimer      *clock;
+@property (nonatomic, strong) DanmakuCanvas     *canvas;
+@property (nonatomic, strong) DanmakuTimer      *timer;
 
 @property (nonatomic, assign) DanmakuRendererState state;
 
@@ -38,8 +36,8 @@
         _dispatcher = [DanmakuDispatcher new];
         _dispatcher.delegate = self;
         
-        _clock = [DanmakuTimer new];
-        _clock.delegate = self;
+        _timer = [DanmakuTimer new];
+        _timer.delegate = self;
         
         _viewCache = [NSMutableSet set];
         _stripToSprite = @{}.mutableCopy;
@@ -51,17 +49,17 @@
 
 - (void)start
 {
-    [self.clock start];
+    [self.timer start];
 }
 
 - (void)pause
 {
-    [self.clock stop];
+    [self.timer stop];
 }
 
 - (void)stop
 {
-    [self.clock stop];
+    [self.timer stop];
 }
 
 - (void)accept:(DanmakuSprite *)danmaku
@@ -80,7 +78,7 @@
 
 #pragma mark - DanmakuTimerDelegate
 
-- (void)danmakuTimerDidChange:(id)clock
+- (void)danmakuTimerDidChange:(id)timer
 {
     if (self.dispatcher) {
         [self.dispatcher dispatchSprites];
@@ -94,6 +92,8 @@
     return [self activeSprite:sprite];
 }
 
+#pragma mark - DanmakSpriteDelegate
+
 - (void)danmakuDidReachTheEnd:(DanmakuSprite *)sprite
 {
     NSNumber *key = @(sprite.stripRange.location);
@@ -101,6 +101,8 @@
         [self.stripToSprite removeObjectForKey:key];
     }
 }
+
+#pragma mark - 
 
 /**
  * 如果 return YES，则在 WaitingList 中移除这个 Sprite

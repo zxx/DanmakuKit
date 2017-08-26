@@ -38,8 +38,6 @@ typedef NS_ENUM(NSInteger, DanmakuType) {
 @property (nonatomic, weak) id<DanmakuSpriteDeleagte> delegate;
 
 - (void)active;
-- (void)active:(DanmakuCanvas *)canvas;
-
 - (void)deactive;
 
 - (BOOL)isValid;

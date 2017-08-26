@@ -11,17 +11,9 @@
 #import "DanmakuView.h"
 
 @interface DanmakuSprite()<CAAnimationDelegate>
-
 @end
 
 @implementation DanmakuSprite
-
-- (void)active:(DanmakuCanvas *)canvas
-{
-    [canvas draw:self];
-    
-    [self active];
-}
 
 - (void)active
 {

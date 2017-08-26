@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-
 typedef NS_ENUM(NSInteger, DanmakuAlignment) {
     DanmakuAlignmentTop,
     DanmakuAlignmentBottom,
@@ -21,7 +20,8 @@ typedef NS_ENUM(NSInteger, DanmakuRendererState) {
     DanmakuRendererStateStopped
 };
 
-@class DanmakuSprite, DanmakuDescriptor;
+
+@class DanmakuSprite;
 
 @interface DanmakuRenderer : NSObject
 
@@ -29,8 +29,6 @@ typedef NS_ENUM(NSInteger, DanmakuRendererState) {
 
 @property (nonatomic, weak, readonly) UIView *view;
 
-/* 画布内边距 */
-@property (nonatomic, assign) UIEdgeInsets canvasInset;
 
 - (void)start;
 - (void)pause;
