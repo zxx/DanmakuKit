@@ -37,56 +37,6 @@
     [sprite active];
 }
 
-- (CGRect)getBeginFrame:(DanmakuSprite *)danmaku alignment:(DanmakuAlignment)alignment
-{
-    CGFloat y = 0.0;
-    if (alignment == DanmakuAlignmentTop) {
-        y = danmaku.stripRange.location * self.stripHeight;
-    } else {
-        y = (danmaku.stripRange.location - danmaku.stripRange.length) * self.stripHeight;
-    }
-    
-    CGRect frame = danmaku.bindingView.frame;
-    frame.origin = CGPointMake(CGRectGetMaxX(self.bounds), y);
-    return frame;
-}
-
-- (CGRect)getEndFrame:(DanmakuSprite *)danmaku alignment:(DanmakuAlignment)alignment
-{
-    CGFloat y = 0.0;
-    if (alignment == DanmakuAlignmentTop) {
-        y = danmaku.stripRange.location * self.stripHeight;
-    } else {
-        y = (danmaku.stripRange.location - danmaku.stripRange.length) * self.stripHeight;
-    }
-    
-    CGRect frame = danmaku.bindingView.frame;
-    frame.origin = CGPointMake(-CGRectGetWidth(frame), y);
-    return frame;
-}
-
-- (BOOL)checkIsRightIn:(DanmakuSprite *)danmaku
-{
-    CALayer *presentationLayer = danmaku.bindingView.layer.presentationLayer;
-    if (!presentationLayer) {
-        presentationLayer = danmaku.bindingView.layer.modelLayer;
-    }
-    
-    CGFloat right = CGRectGetMaxX(presentationLayer.frame);
-    return CGRectGetWidth(self.bounds) > right;
-}
-
-- (BOOL)checkIsLeftIn:(DanmakuSprite *)danmaku
-{
-    CALayer *presentationLayer = danmaku.bindingView.layer.presentationLayer;
-    if (!presentationLayer) {
-        presentationLayer = danmaku.bindingView.layer.modelLayer;
-    }
-    
-    CGFloat left = CGRectGetMinX(presentationLayer.frame);
-    return left > 0;
-}
-
 @end
 
 @implementation DanmakuCanvas (TouchEventHandler)

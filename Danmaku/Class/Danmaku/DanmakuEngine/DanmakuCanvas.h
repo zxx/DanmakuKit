@@ -21,10 +21,5 @@
 
 - (void)draw:(DanmakuSprite *)sprite;
 
-- (CGRect)getBeginFrame:(DanmakuSprite *)danmaku alignment:(DanmakuAlignment)alignment;
-- (CGRect)getEndFrame:(DanmakuSprite *)danmaku alignment:(DanmakuAlignment)alignment;
-
-- (BOOL)checkIsRightIn:(DanmakuSprite *)danmaku;
-- (BOOL)checkIsLeftIn:(DanmakuSprite *)danmaku;
 
 @end

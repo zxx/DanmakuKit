@@ -11,6 +11,7 @@
 #import "DanmakuCanvas.h"
 #import "DanmakuTimer.h"
 #import "DanmakuSprite.h"
+#import "DanmakuUtils.h"
 
 @interface DanmakuRenderer()<DanmakuDispatcherDelegate, DanmakuTimerDelegate, DanmakuSpriteDeleagte>
 
@@ -128,8 +129,12 @@
     }
     
     sprite.stripRange = stripRange;
-    sprite.beginFrame = [self.canvas getBeginFrame:sprite alignment:_danmakuAlignment];
-    sprite.endFrame = [self.canvas getEndFrame:sprite alignment:_danmakuAlignment];
+    sprite.beginFrame = [DanmakuUtils getDanmakuBeginFrame:sprite
+                                                 alignment:self.danmakuAlignment
+                                                    canvas:self.canvas];
+    sprite.endFrame = [DanmakuUtils getDanmakuEndFrame:sprite
+                                             alignment:self.danmakuAlignment
+                                                canvas:self.canvas];
     sprite.delegate = self;
     [self.canvas draw:sprite];
     return YES;
@@ -159,7 +164,7 @@
         DanmakuSprite *lastSprite = self.stripToSprite[key];
         
         // 如果当前 Strip 不可用，直接跳到 i + sprite.stripRange.length 处
-        if (lastSprite && ![self.canvas checkIsRightIn:lastSprite]) {
+        if (lastSprite && ![DanmakuUtils checkIsDanmakuRightIn:lastSprite canvas:self.canvas]) {
             i += MAX(lastSprite.stripRange.length, 1);
             
             stripRange.location = NSNotFound;
@@ -191,7 +196,7 @@
 
 /*
  * 居下对齐 NSRange 含义
- * 
+ *
  * ┌──────────────────────────┐     ┌───────────────┐
  * │                          │┌───▶│ height is 20  │
  * │                          ││    └───────────────┘
@@ -213,7 +218,7 @@
         DanmakuSprite *lastSprite = self.stripToSprite[key];
         
         // 如果当前 Strip 不可用，直接跳到 i - sprite.stripRange.length 处
-        if (lastSprite && ![self.canvas checkIsRightIn:lastSprite]) {
+        if (lastSprite && ![DanmakuUtils checkIsDanmakuRightIn:lastSprite canvas:self.canvas]) {
             i -= MAX(lastSprite.stripRange.length, 1);
             
             stripRange.location = NSNotFound;
@@ -242,7 +247,6 @@
     
     return stripRange;
 }
-
 
 #pragma mark -
 
