@@ -10,7 +10,12 @@
 #import "DanmakuSprite.h"
 #import "DanmakuView.h"
 
-#define STRIP_NUM 100
+@interface DanmakuCanvas()
+
+@property (nonatomic, assign) CGFloat stripNumber;
+@property (nonatomic, assign) CGFloat stripHeight;
+
+@end
 
 @implementation DanmakuCanvas
 

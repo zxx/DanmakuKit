@@ -14,11 +14,11 @@
 @implementation DanmakuUtils
 
 + (CGRect)getDanmakuBeginFrame:(DanmakuSprite *)danmaku
-                     alignment:(DanmakuAlignment)alignment
+                     alignment:(DanmakuVerticalAlignment)alignment
                         canvas:(DanmakuCanvas *)canvas
 {
     CGFloat y = 0.0;
-    if (alignment == DanmakuAlignmentTop) {
+    if (alignment == DanmakuVerticalAlignmentTop) {
         y = danmaku.stripRange.location * canvas.stripHeight;
     } else {
         y = (danmaku.stripRange.location - danmaku.stripRange.length) * canvas.stripHeight;
@@ -30,11 +30,11 @@
 }
 
 + (CGRect)getDanmakuEndFrame:(DanmakuSprite *)danmaku
-                   alignment:(DanmakuAlignment)alignment
+                   alignment:(DanmakuVerticalAlignment)alignment
                       canvas:(DanmakuCanvas *)canvas
 {
     CGFloat y = 0.0;
-    if (alignment == DanmakuAlignmentTop) {
+    if (alignment == DanmakuVerticalAlignmentTop) {
         y = danmaku.stripRange.location * canvas.stripHeight;
     } else {
         y = (danmaku.stripRange.location - danmaku.stripRange.length) * canvas.stripHeight;

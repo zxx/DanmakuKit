@@ -7,11 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef NS_ENUM(NSInteger, DanmakuType) {
-    DanmakuTypeLeftToRight,
-    DanmakuTypeRightToLeft,
-};
+#import "DanmakuDefines.h"
 
 @class DanmakuCanvas, DanmakuView, DanmakuSprite;
 
@@ -21,11 +17,13 @@ typedef NS_ENUM(NSInteger, DanmakuType) {
 
 @end
 
+
 @interface DanmakuSprite : NSObject
 
 @property (nonatomic, copy) NSString *viewClass;
 @property (nonatomic, strong) id viewModel;
 
+@property (nonatomic, assign) DanmakuMoveSpeed speed;
 @property (nonatomic, strong) DanmakuView *bindingView;
 
 @property (nonatomic, assign) NSRange stripRange;

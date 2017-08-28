@@ -22,6 +22,8 @@
 		786CA0BC1EAB46AE0040EEF8 /* DanmakuSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 786CA0BB1EAB46AE0040EEF8 /* DanmakuSprite.m */; };
 		786CA0BF1EAB46BE0040EEF8 /* DanmakuSpriteFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 786CA0BE1EAB46BE0040EEF8 /* DanmakuSpriteFactory.m */; };
 		786CA0C51EAB473D0040EEF8 /* DanmakuDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 786CA0C41EAB473D0040EEF8 /* DanmakuDispatcher.m */; };
+		78B0B0B71F53B40200EDBB30 /* DanmakuDefines.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B0B0B61F53B40200EDBB30 /* DanmakuDefines.m */; };
+		78B0B0BA1F53C51000EDBB30 /* DanmakuUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 78B0B0B91F53C51000EDBB30 /* DanmakuUtils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +57,10 @@
 		786CA0BE1EAB46BE0040EEF8 /* DanmakuSpriteFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DanmakuSpriteFactory.m; path = ../DanmakuEngine/DanmakuSpriteFactory.m; sourceTree = "<group>"; };
 		786CA0C31EAB473D0040EEF8 /* DanmakuDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuDispatcher.h; sourceTree = "<group>"; };
 		786CA0C41EAB473D0040EEF8 /* DanmakuDispatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuDispatcher.m; sourceTree = "<group>"; };
+		78B0B0B51F53B40200EDBB30 /* DanmakuDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuDefines.h; sourceTree = "<group>"; };
+		78B0B0B61F53B40200EDBB30 /* DanmakuDefines.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuDefines.m; sourceTree = "<group>"; };
+		78B0B0B81F53C51000EDBB30 /* DanmakuUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DanmakuUtils.h; sourceTree = "<group>"; };
+		78B0B0B91F53C51000EDBB30 /* DanmakuUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DanmakuUtils.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +155,10 @@
 				786CA0B71EAB45F30040EEF8 /* DanmakuCanvas.m */,
 				7852DBE61F4C98FB00E0A171 /* DanmakuTimer.h */,
 				7852DBE71F4C98FB00E0A171 /* DanmakuTimer.m */,
+				78B0B0B81F53C51000EDBB30 /* DanmakuUtils.h */,
+				78B0B0B91F53C51000EDBB30 /* DanmakuUtils.m */,
+				78B0B0B51F53B40200EDBB30 /* DanmakuDefines.h */,
+				78B0B0B61F53B40200EDBB30 /* DanmakuDefines.m */,
 			);
 			path = DanmakuEngine;
 			sourceTree = "<group>";
@@ -239,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78B0B0BA1F53C51000EDBB30 /* DanmakuUtils.m in Sources */,
 				786CA07E1EAB41A70040EEF8 /* main.m in Sources */,
 				786CA0A81EAB445A0040EEF8 /* DFViewController.m in Sources */,
 				786CA0BC1EAB46AE0040EEF8 /* DanmakuSprite.m in Sources */,
@@ -247,6 +258,7 @@
 				786CA0A71EAB445A0040EEF8 /* DFAppDelegate.m in Sources */,
 				786CA0C51EAB473D0040EEF8 /* DanmakuDispatcher.m in Sources */,
 				786CA0BF1EAB46BE0040EEF8 /* DanmakuSpriteFactory.m in Sources */,
+				78B0B0B71F53B40200EDBB30 /* DanmakuDefines.m in Sources */,
 				786CA0B81EAB45F30040EEF8 /* DanmakuCanvas.m in Sources */,
 				7852DBE81F4C98FB00E0A171 /* DanmakuTimer.m in Sources */,
 				785B187E1F4DE8A800178FB0 /* MyViewModel.m in Sources */,

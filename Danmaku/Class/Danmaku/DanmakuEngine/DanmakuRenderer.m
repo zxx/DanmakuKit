@@ -19,7 +19,7 @@
 @property (nonatomic, strong) DanmakuCanvas     *canvas;
 @property (nonatomic, strong) DanmakuTimer      *timer;
 
-@property (nonatomic, assign) DanmakuRendererState state;
+@property (nonatomic, assign) BOOL isRunning;
 
 @property (nonatomic, strong) NSMutableSet *viewCache;
 
@@ -43,7 +43,7 @@
         _viewCache = [NSMutableSet set];
         _stripToSprite = @{}.mutableCopy;
         
-        _danmakuAlignment = DanmakuAlignmentBottom;
+        _verticalAlignment = DanmakuVerticalAlignmentBottom;
     }
     return self;
 }
@@ -53,11 +53,15 @@
 - (void)start
 {
     [self.timer start];
+    
+    self.isRunning = YES;
 }
 
 - (void)pause
 {
     [self.timer stop];
+    
+    self.isRunning = NO;
 }
 
 - (void)stop
@@ -68,6 +72,7 @@
         [view.layer removeAllAnimations];
         [view removeFromSuperview];
     }
+    self.isRunning = NO;
 }
 
 - (void)accept:(DanmakuSprite *)danmaku
@@ -119,7 +124,7 @@
 - (BOOL)activeSprite:(DanmakuSprite *)sprite
 {
     NSRange stripRange = NSMakeRange(NSNotFound, 0);
-    if (_danmakuAlignment == DanmakuAlignmentTop) {
+    if (_verticalAlignment == DanmakuVerticalAlignmentTop) {
         stripRange = [self getDanmakuStripRangeAlignTop:sprite];
     } else {
         stripRange = [self getDanmakuStripRangeAlignBottom:sprite];
@@ -130,10 +135,10 @@
     
     sprite.stripRange = stripRange;
     sprite.beginFrame = [DanmakuUtils getDanmakuBeginFrame:sprite
-                                                 alignment:self.danmakuAlignment
+                                                 alignment:self.verticalAlignment
                                                     canvas:self.canvas];
     sprite.endFrame = [DanmakuUtils getDanmakuEndFrame:sprite
-                                             alignment:self.danmakuAlignment
+                                             alignment:self.verticalAlignment
                                                 canvas:self.canvas];
     sprite.delegate = self;
     [self.canvas draw:sprite];

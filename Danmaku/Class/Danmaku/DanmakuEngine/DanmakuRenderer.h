@@ -7,27 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef NS_ENUM(NSInteger, DanmakuRendererState) {
-    DanmakuRendererStateIdle,
-    DanmakuRendererStateStarted,
-    DanmakuRendererStatePaused,
-    DanmakuRendererStateStopped
-};
-
-typedef NS_ENUM(NSInteger, DanmakuAlignment) {
-    DanmakuAlignmentTop,
-    DanmakuAlignmentBottom,
-};
+#import "DanmakuDefines.h"
 
 @class DanmakuSprite;
 
 @interface DanmakuRenderer : NSObject
 
-@property (nonatomic, assign, readonly) DanmakuRendererState state;
 @property (nonatomic, assign, readonly) UIView *view;
+@property (nonatomic, assign, readonly) BOOL isRunning;
 
-@property (nonatomic, assign) DanmakuAlignment danmakuAlignment;
+@property (nonatomic, assign) DanmakuVerticalAlignment verticalAlignment;
 
 - (void)start;
 - (void)pause;

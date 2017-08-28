@@ -48,7 +48,7 @@ static int count = 0;
         
         MyViewModel *viewModel = [MyViewModel new];
         viewModel.text = [NSString stringWithFormat:@"test-%d", i];
-        DanmakuSprite *danmaku = [DanmakuSpriteFactory createDanmaku:DanmakuTypeRightToLeft
+        DanmakuSprite *danmaku = [DanmakuSpriteFactory createDanmaku:DanmakuMoveDirectionRightToLeft
                                                            viewClass:@"MyDanmakuView"
                                                            viewModel:viewModel];
         [self.danmakuRender accept:danmaku];

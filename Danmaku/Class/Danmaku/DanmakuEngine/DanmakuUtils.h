@@ -14,10 +14,10 @@
 @interface DanmakuUtils : NSObject
 
 + (CGRect)getDanmakuBeginFrame:(DanmakuSprite *)danmaku
-                     alignment:(DanmakuAlignment)alignment
+                     alignment:(DanmakuVerticalAlignment)alignment
                         canvas:(DanmakuCanvas *)canvas;
 + (CGRect)getDanmakuEndFrame:(DanmakuSprite *)danmaku
-                   alignment:(DanmakuAlignment)alignment
+                   alignment:(DanmakuVerticalAlignment)alignment
                       canvas:(DanmakuCanvas *)canvas;
 
 + (BOOL)checkIsDanmakuRightIn:(DanmakuSprite *)danmaku canvas:(DanmakuCanvas *)canvas;

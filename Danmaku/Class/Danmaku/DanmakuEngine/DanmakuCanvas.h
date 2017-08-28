@@ -7,17 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DanmakuRenderer.h"
+#import "DanmakuDefines.h"
 
 @class DanmakuSprite;
 
 @interface DanmakuCanvas : UIView
 
-@property (nonatomic, assign) CGFloat stripNumber;
-@property (nonatomic, assign) CGFloat stripHeight;
-
-@property (nonatomic, assign) CGFloat minItemSpacing;
-@property (nonatomic, assign) CGFloat minLineSpacing;
+@property (nonatomic, assign, readonly) CGFloat stripNumber;
+@property (nonatomic, assign, readonly) CGFloat stripHeight;
 
 - (void)draw:(DanmakuSprite *)sprite;
 
