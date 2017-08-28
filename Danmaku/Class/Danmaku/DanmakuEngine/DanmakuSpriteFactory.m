@@ -11,18 +11,16 @@
 
 @implementation DanmakuSpriteFactory
 
-+ (DanmakuSprite *)createDanmaku:(DanmakuMoveDirection)type
-                       viewClass:(NSString *)viewClass
-                       viewModel:(id)viewModel
++ (DanmakuSprite *)createDanmakuWithViewClass:(NSString *)viewClass
+                                    viewModel:(id)viewModel
 {
-    return [self createDanmaku:type viewClass:viewClass viewModel:viewModel speed:DanmakuMoveSpeedMedium];
+    return [self createDanmakuWithViewClass:viewClass viewModel:viewModel speed:DanmakuMoveSpeedMedium];
 }
 
 
-+ (DanmakuSprite *)createDanmaku:(DanmakuMoveDirection)type
-                       viewClass:(NSString *)viewClass
-                       viewModel:(id)viewModel
-                           speed:(DanmakuMoveSpeed)speed
++ (DanmakuSprite *)createDanmakuWithViewClass:(NSString *)viewClass
+                                    viewModel:(id)viewModel
+                                        speed:(DanmakuMoveSpeed)speed
 {
     DanmakuSprite *danmaku = [DanmakuSprite new];
     danmaku.viewClass = viewClass;

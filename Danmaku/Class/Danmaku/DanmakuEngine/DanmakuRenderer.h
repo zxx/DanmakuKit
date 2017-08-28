@@ -16,7 +16,8 @@
 @property (nonatomic, assign, readonly) UIView *view;
 @property (nonatomic, assign, readonly) BOOL isRunning;
 
-@property (nonatomic, assign) DanmakuVerticalAlignment verticalAlignment;
+@property (nonatomic, assign) DanmakuVerticalAlignment danmakuVerticalAlignment;
+@property (nonatomic, assign) DanmakuMoveDirection     danmakuMoveDirection;
 
 - (void)start;
 - (void)pause;

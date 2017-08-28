@@ -43,7 +43,8 @@
         _viewCache = [NSMutableSet set];
         _stripToSprite = @{}.mutableCopy;
         
-        _verticalAlignment = DanmakuVerticalAlignmentBottom;
+        _danmakuVerticalAlignment = DanmakuVerticalAlignmentBottom;
+        _danmakuMoveDirection = DanmakuMoveDirectionRightToLeft;
     }
     return self;
 }
@@ -124,7 +125,7 @@
 - (BOOL)activeSprite:(DanmakuSprite *)sprite
 {
     NSRange stripRange = NSMakeRange(NSNotFound, 0);
-    if (_verticalAlignment == DanmakuVerticalAlignmentTop) {
+    if (_danmakuVerticalAlignment == DanmakuVerticalAlignmentTop) {
         stripRange = [self getDanmakuStripRangeAlignTop:sprite];
     } else {
         stripRange = [self getDanmakuStripRangeAlignBottom:sprite];
@@ -134,12 +135,22 @@
     }
     
     sprite.stripRange = stripRange;
-    sprite.beginFrame = [DanmakuUtils getDanmakuBeginFrame:sprite
-                                                 alignment:self.verticalAlignment
+    if (_danmakuMoveDirection == DanmakuMoveDirectionRightToLeft) {
+        sprite.beginFrame = [DanmakuUtils getDanmakuBeginFrame:sprite
+                                                     alignment:self.danmakuVerticalAlignment
+                                                        canvas:self.canvas];
+        sprite.endFrame = [DanmakuUtils getDanmakuEndFrame:sprite
+                                                 alignment:self.danmakuVerticalAlignment
                                                     canvas:self.canvas];
-    sprite.endFrame = [DanmakuUtils getDanmakuEndFrame:sprite
-                                             alignment:self.verticalAlignment
-                                                canvas:self.canvas];
+    } else {
+        sprite.beginFrame = [DanmakuUtils getDanmakuEndFrame:sprite
+                                                   alignment:self.danmakuVerticalAlignment
+                                                      canvas:self.canvas];
+        sprite.endFrame = [DanmakuUtils getDanmakuBeginFrame:sprite
+                                                   alignment:self.danmakuVerticalAlignment
+                                                      canvas:self.canvas];
+        
+    }
     sprite.delegate = self;
     [self.canvas draw:sprite];
     return YES;
@@ -169,11 +180,15 @@
         DanmakuSprite *lastSprite = self.stripToSprite[key];
         
         // 如果当前 Strip 不可用，直接跳到 i + sprite.stripRange.length 处
-        if (lastSprite && ![DanmakuUtils checkIsDanmakuRightIn:lastSprite canvas:self.canvas]) {
-            i += MAX(lastSprite.stripRange.length, 1);
-            
-            stripRange.location = NSNotFound;
-            continue;
+        if (lastSprite) {
+            if ((_danmakuMoveDirection == DanmakuMoveDirectionRightToLeft && ![DanmakuUtils checkIsDanmakuRightIn:lastSprite canvas:self.canvas]) ||
+                (_danmakuMoveDirection == DanmakuMoveDirectionLeftToRight && ![DanmakuUtils checkIsDanmakuLeftIn:lastSprite canvas:self.canvas])) {
+                
+                i += MAX(lastSprite.stripRange.length, 1);
+                stripRange.location = NSNotFound;
+                
+                continue;
+            }
         }
         
         if (stripRange.location == NSNotFound) {
@@ -223,11 +238,15 @@
         DanmakuSprite *lastSprite = self.stripToSprite[key];
         
         // 如果当前 Strip 不可用，直接跳到 i - sprite.stripRange.length 处
-        if (lastSprite && ![DanmakuUtils checkIsDanmakuRightIn:lastSprite canvas:self.canvas]) {
-            i -= MAX(lastSprite.stripRange.length, 1);
-            
-            stripRange.location = NSNotFound;
-            continue;
+        if (lastSprite) {
+            if ((_danmakuMoveDirection == DanmakuMoveDirectionRightToLeft && ![DanmakuUtils checkIsDanmakuRightIn:lastSprite canvas:self.canvas]) ||
+                (_danmakuMoveDirection == DanmakuMoveDirectionLeftToRight && ![DanmakuUtils checkIsDanmakuLeftIn:lastSprite canvas:self.canvas])) {
+                
+                i -= MAX(lastSprite.stripRange.length, 1);
+                stripRange.location = NSNotFound;
+                
+                continue;
+            }
         }
         
         if (stripRange.location == NSNotFound) {

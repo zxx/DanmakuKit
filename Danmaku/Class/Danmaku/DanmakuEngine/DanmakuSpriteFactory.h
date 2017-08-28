@@ -11,13 +11,11 @@
 
 @interface DanmakuSpriteFactory : NSObject
 
-+ (DanmakuSprite *)createDanmaku:(DanmakuMoveDirection)type
-                       viewClass:(NSString *)viewClass
-                       viewModel:(id)viewModel;
++ (DanmakuSprite *)createDanmakuWithViewClass:(NSString *)viewClass
+                                    viewModel:(id)viewModel;
 
-+ (DanmakuSprite *)createDanmaku:(DanmakuMoveDirection)type
-                       viewClass:(NSString *)viewClass
-                       viewModel:(id)viewModel
-                           speed:(DanmakuMoveSpeed)speed;
++ (DanmakuSprite *)createDanmakuWithViewClass:(NSString *)viewClass
+                                    viewModel:(id)viewModel
+                                        speed:(DanmakuMoveSpeed)speed;
 
 @end
